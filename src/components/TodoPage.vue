@@ -16,21 +16,23 @@
     {{todo.name}}
 	<div class="btn-group pull-right" 
     	style="font-size: 12px; line-height: 1;">
-		<button type="button" 
+		<!-- <button type="button" 
         		class="btn-link dropdown-toggle" 
 		        data-toggle="dropdown" 
 		        aria-haspopup="true" 
 		        aria-expanded="false">
 			더보기<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
+		</button> -->
+        <div><a href="#" @click="deleteTodo(index)">삭제</a></div>
+		<!-- <ul class="dropdown-menu">
 			<li><a href="#" @click="deleteTodo(index)">삭제</a></li>
-		</ul>
+		</ul> -->
 	</div>
 </li>
   </ul>
 </div>
 </template>
+<!-- https://blog.storyg.co/vue-js-posts/todos-tutorial -->
 
 <script>
 export default {
@@ -38,7 +40,7 @@ export default {
 	data () {
 		return {
 			name:null,
-			todos: [{name:'청소'},{name:'블로그 쓰기'},{name:'밥먹기'},{name:'안녕'}]
+			todos: []
 		}
 	},
 	methods:{
@@ -47,11 +49,36 @@ export default {
 		},
 		createTodo(name){
 			if(name != null){
-				this.todos.push({name:name});
+                this.todos.push({name:name});
 				this.name = null
-			}
-		}
-	}
+
+                /*
+                var vm = this;
+                this.$http.defaults.headers.post['Content-Type'] = 'application/json';
+
+
+                this.$http.post('http://todos.garam.xyz/api/todos',{
+                    name:name
+                }).then((result) => {
+                        vm.todos.push(result.data);
+                })
+                this.name = null
+                */
+            }
+		},
+        getTodos(){
+            this.$http.get('http://todos.garam.xyz/api/todos')
+            .then((result) => {
+                    console.log(result)
+                    // vm.todos = result.data.data;
+            })
+        }
+	},
+    mounted(){
+     this.getTodos();
+    }
+
+
 }
 
 </script>

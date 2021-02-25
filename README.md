@@ -59,3 +59,14 @@ export default new Router({
   ]
 })
 ```
+
+install axios
+```
+npm install axios --save-dev
+```
++ mainjs
+
+```js
+import axios from 'axios'
+Vue.prototype.$http = axios
+```

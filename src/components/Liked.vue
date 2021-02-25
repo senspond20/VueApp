@@ -13,7 +13,15 @@
 </template>
 
 <script>
-  const app = new Vue({
+export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      msg: 'My Vue.js App'
+    }
+  }
+}
+  
   el : '#liked', // root를 Vue가 통제하고 있다.
       data : {
           liked1 : false, //liked 라는 데이터가 false
