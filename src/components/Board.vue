@@ -33,7 +33,9 @@
 </template>
 
 <script>
+import Example from './Example.vue';
   export default {
+  components: { Example },
     name: 'Board',
     data() {
       return {
@@ -62,7 +64,7 @@
       },
       getDetail: function () {
         console.log(this._self)
-        
+
       },
       changeSize: function () {
         var newSize = Number(document.querySelector('#changeSize').value);
@@ -101,13 +103,11 @@
         var esc = encodeURIComponent;
         var query = Object.keys(params)
           .map(k => esc(k) + '=' + esc(params[k])).join('&');
-
         // axios
         this.$http.get('http://localhost:8080/api/board?' + query)
           .then((result) => {
             // console.log(result)
             // console.log(result.data)
-
             var data = result.data;
             this.maxPage = data.totalPages;
             this.rendar(data.content)
