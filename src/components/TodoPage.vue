@@ -12,7 +12,7 @@
 	</span>
   </div>
   <ul class="list-group">
-    <li class="list-group-item" v-for="(todo, index) in todos">
+    <li class="list-group-item" v-for="(todo, index) in todos" :key="index" >
     {{todo.name}}
 	<div class="btn-group pull-right" 
     	style="font-size: 12px; line-height: 1;">
