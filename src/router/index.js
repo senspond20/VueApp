@@ -4,6 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import Example from '@/components/Example'
 import TodoPage from '@/components/TodoPage'
 import Board from '@/components/Board'
+import Editor from '@/components/Editor'
+import Liked from '@/components/Liked'
 Vue.use(Router)
 
 export default new Router({
@@ -23,6 +25,16 @@ export default new Router({
       path: '/example',
       name: 'Example',
       component: Example
+    },
+    {
+      path: '/liked',
+      name: 'Liked',
+      component: Liked
+    },
+    {
+      path:'/edtior',
+      name : 'Editor',
+      component: Editor
     },
     {//추가
       path: '/todos',
