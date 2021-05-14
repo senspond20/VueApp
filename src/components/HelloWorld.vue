@@ -5,6 +5,7 @@
          <li><router-link to = "/example" > example </router-link></li>
          <li><router-link to = "/todos" > Todos </router-link ></li>
          <li><router-link to ="/board"> Board </router-link></li>
+         <li><router-link to ="/editor"> Editor </router-link></li>
        <!-- <li><a href ="/example">example</a></li>
         <li><a href ="/todos">Todos</a></li> -->
       </ul>
